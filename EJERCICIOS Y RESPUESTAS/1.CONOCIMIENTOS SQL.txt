@@ -1,0 +1,37 @@
+1. CONOCIMIENTOS SQL
+1.1) ¿Cómo funciona la sentencia JOIN?
+JOIN permite combinar filas de dos o más tablas relacionadas mediante una condición, generalmente usando claves foráneas.
+
+1.2) Tipos de JOIN y funcionamiento:
+
+INNER JOIN: Devuelve solo los registros con coincidencias en ambas tablas.
+
+LEFT JOIN: Devuelve todos los registros de la tabla izquierda y las coincidencias de la derecha (o NULL si no hay).
+
+RIGHT JOIN: Devuelve todos los registros de la tabla derecha y las coincidencias de la izquierda (o NULL si no hay).
+
+FULL JOIN (no soportado en MySQL directamente): Devuelve todos los registros cuando hay coincidencia en una u otra tabla.
+
+1.3) ¿Qué es un TRIGGER y para qué sirve?
+Es un bloque de código que se ejecuta automáticamente antes o después de una operación (INSERT, UPDATE, DELETE) en una tabla. Se usa para validar, auditar o actualizar datos automáticamente.
+
+1.4) ¿Qué es un STORED PROCEDURE?
+Es un conjunto de instrucciones SQL guardado en la base de datos, que se puede ejecutar múltiples veces. Sirve para encapsular lógica compleja y reutilizable del lado del servidor.
+
+1.5) Productos que tengan al menos una venta:
+SELECT DISTINCT p.*
+FROM productos p
+JOIN ventas v ON p.idProducto = v.idProducto;
+
+1.6) Productos con ventas y cantidad total vendida:
+SELECT p.idProducto, p.nombre, SUM(v.cantidad) AS total_vendido
+FROM productos p
+JOIN ventas v ON p.idProducto = v.idProducto
+GROUP BY p.idProducto, p.nombre;
+
+1.7) Todos los productos y la suma total en $ vendido por producto (0 si no tiene ventas):
+SELECT p.idProducto, p.nombre, 
+       IFNULL(SUM(v.cantidad * p.precio), 0) AS total_vendido
+FROM productos p
+LEFT JOIN ventas v ON p.idProducto = v.idProducto
+GROUP BY p.idProducto, p.nombre, p.precio;
