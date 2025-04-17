@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+
+  <display-name>AdministracionInventario</display-name>
+
+  <session-config>
+    <session-timeout>30</session-timeout>    <!-- minutos -->
+  </session-config>
+
+
+  <welcome-file-list>
+    <welcome-file>vistas/login.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Configuración para LoginController -->
+  <servlet>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>controlador.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
+  </servlet-mapping>
+
+  <!-- Configuración para LogoutController -->
+  <servlet>
+    <servlet-name>LogoutController</servlet-name>
+    <servlet-class>controlador.LogoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutController</servlet-name>
+    <url-pattern>/LogoutController</url-pattern>
+  </servlet-mapping>
+
+  <!-- Configuración para AgregarProductoController -->
+  <servlet>
+    <servlet-name>AgregarProductoController</servlet-name>
+    <servlet-class>controlador.AgregarProductoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AgregarProductoController</servlet-name>
+    <url-pattern>/AgregarProductoController</url-pattern>
+  </servlet-mapping>
+
+  <!-- Configuración para MovimientoController  -->
+  <servlet>
+    <servlet-name>MovimientoController</servlet-name>
+    <servlet-class>controlador.MovimientoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MovimientoController</servlet-name>
+    <url-pattern>/MovimientoController</url-pattern>
+  </servlet-mapping>
+
+  <!-- Configuración para SalidaProductoController -->
+  <servlet>
+    <servlet-name>SalidaProductoController</servlet-name>
+    <servlet-class>controlador.SalidaProductoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SalidaProductoController</servlet-name>
+    <url-pattern>/SalidaProductoController</url-pattern>
+  </servlet-mapping>
+
+  <!-- Definir el Servlet -->
+  <servlet>
+    <servlet-name>InventarioController</servlet-name>
+    <servlet-class>controlador.InventarioController</servlet-class>
+  </servlet>
+
+  <!-- Mapear el Servlet a la URL '/inventario' -->
+  <servlet-mapping>
+    <servlet-name>InventarioController</servlet-name>
+    <url-pattern>/inventario</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EstatusProductoController</servlet-name>
+    <servlet-class>controlador.EstatusProductoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstatusProductoController</servlet-name>
+    <url-pattern>/estatusProducto</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EntradaInventarioController</servlet-name>
+    <servlet-class>controlador.EntradaInventarioController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EntradaInventarioController</servlet-name>
+    <url-pattern>/entradaInventario</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HistorialMovimientosController</servlet-name>
+    <servlet-class>controlador.HistorialMovimientosController</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>HistorialMovimientosController</servlet-name>
+    <url-pattern>/HistorialMovimientosController</url-pattern>
+  </servlet-mapping>
+</web-app>
