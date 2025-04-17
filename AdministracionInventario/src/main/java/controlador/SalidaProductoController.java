@@ -19,7 +19,7 @@ public class SalidaProductoController extends HttpServlet {
 
         try (Connection con = Conexion.getConexion()) {
             ProductoDAO dao = new ProductoDAO(con);
-            List<Producto> listaProductos = dao.obtenerTodos();
+            List<Producto> listaProductos = dao.obtenerProductosActivos();
 
             request.setAttribute("productosActivos", listaProductos);
             request.getRequestDispatcher("/vistas/salidaProductos.jsp")
